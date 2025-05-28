@@ -25,7 +25,7 @@ closeMenuBtn.classList.remove("active");
 const sections = document.querySelectorAll(".section");
 
 function showSections() {
-  const triggerBottom = window.innerHeight * 0.85;
+  const triggerBottom = window.innerHeight * 0.25;
 
   sections.forEach((section) => {
     const sectionTop = section.getBoundingClientRect().top;
