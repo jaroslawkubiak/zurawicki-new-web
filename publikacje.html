@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Żurawicki Design - Studio Projektowania Wnętrz</title>
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <script>
+      const fileVer = Date.now();
+      const head = document.getElementsByTagName("head")[0];
+
+      let link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = `style.css?v=${fileVer}`;
+      head.appendChild(link);
+    </script>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img class="site-logo" src="/img/logo-black.png" alt="logo" />
+      </a>
+      <nav id="nav" class="">
+        <ul>
+          <li><a href="#wnetrza">Wnętrza</a></li>
+          <li><a href="#oferta">Oferta</a></li>
+          <li><a href="publikacje.html">Publikacje</a></li>
+          <li><a href="#onas">O nas</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle" id="menu-toggle">
+        <img
+          id="open-menu-btn"
+          class="menu-icon"
+          src="/img/svg/menu.svg"
+          alt="menu"
+        />
+        <img
+          id="close-menu-btn"
+          class="menu-icon"
+          src="/img/svg/close.svg"
+          alt="menu"
+        />
+      </div>
+    </header>
+
+    <section id="publikacje" class="section">
+      <div class="publikacja-wrapper">
+        <p class="publikacja-title">White Mad</p>
+        <p class="publikacja-date">Maj 2025</p>
+        <a
+          href="https://www.whitemad.pl/72-metrowy-apartament-w-bydgoszczy-z-widokiem-na-brde/"
+        >
+          <img
+            class="publikacja-img"
+            src="img/publikacje/05-2025-white-mad.jpg"
+            alt="Publikacja White Mad"
+          />
+        </a>
+      </div>
+      <div class="publikacja-wrapper">
+        <p class="publikacja-title">Label Magazine</p>
+        <p class="publikacja-date">Kwiecień 2025</p>
+        <a
+          href="https://label-magazine.com/wnetrza/artykuly/mieszkanie-w-bydgoszczy-inspirowane-niebem-nalezy-do-pasjonatow-szybownictwa"
+        >
+          <img
+            class="publikacja-img"
+            src="img/publikacje/04-2025-label.jpg"
+            alt="Publikacja Label"
+          />
+        </a>
+      </div>
+    </section>
+
+    <footer id="kontakt">
+      <img class="site-logo-footer" src="/img/logo-black.png" alt="logo" />
+      <span>kontakt&#64;zurawickidesign.pl</span>
+      <span>+48 793 212 982</span>
+      <span>ul. Czerkaska 10/7, 85-641 Bydgoszcz</span>
+      <div class="social">
+        <a href="https://www.instagram.com/zurawicki.design/" target="_blank">
+          <img
+            alt="Instagram"
+            fetchpriority="high"
+            src="https://static.wixstatic.com/media/01c3aff52f2a4dffa526d7a9843d46ea.png/v1/fill/w_36,h_36,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/01c3aff52f2a4dffa526d7a9843d46ea.png"
+          />
+        </a>
+        <a
+          href="https://www.facebook.com/zurawicki.design/?locale=pl_PL"
+          target="_blank"
+        >
+          <img
+            alt="Facebook"
+            fetchpriority="high"
+            src="https://static.wixstatic.com/media/0fdef751204647a3bbd7eaa2827ed4f9.png/v1/fill/w_36,h_36,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0fdef751204647a3bbd7eaa2827ed4f9.png"
+          />
+        </a>
+      </div>
+      <span class="copyright"> © 2025 Żurawicki Design </span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
