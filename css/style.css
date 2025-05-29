@@ -56,10 +56,6 @@ section.active {
   transform: translateY(0);
 }
 
-.sticky {
-  position: fixed;
-  opacity: 0.95;
-}
 
 @media (min-width: 768px) {
   .hero {

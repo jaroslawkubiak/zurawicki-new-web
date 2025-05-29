@@ -24,7 +24,7 @@ openMenuBtn.classList.add("active");
 closeMenuBtn.classList.remove("active");
 
 // Animacja sekcji przy scrollowaniu
-const sections = document.querySelectorAll(".section");
+const sections = document.querySelectorAll("section");
 
 function showSections() {
   const triggerBottom = window.innerHeight;
@@ -55,4 +55,21 @@ document.querySelectorAll("nav ul li a").forEach((link) => {
     openMenuBtn.classList.add("active");
     closeMenuBtn.classList.remove("active");
   });
+});
+
+//show sticky menu
+const header = document.querySelector("header");
+const placeholder = document.getElementById("header-placeholder");
+
+window.addEventListener("scroll", function () {
+  const scrollY = window.scrollY;
+
+  if (scrollY >= 500) {
+    header.classList.add("sticky");
+    console.log(header.offsetHeight);
+    placeholder.style.height = header.offsetHeight + "px";
+  } else {
+    header.classList.remove("sticky");
+    placeholder.style.height = "0";
+  }
 });

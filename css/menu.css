@@ -1,8 +1,18 @@
+#header-placeholder {
+  height: 0;
+}
+
 header {
   display: flex;
   justify-content: center;
   border-bottom: 1px solid #070707;
   width: 100%;
+  z-index: 1000;
+}
+
+header.sticky {
+  position: fixed;
+  top: 0;
 }
 
 .nav-menu {
@@ -13,7 +23,6 @@ header {
   width: 100%;
   max-width: 1200px;
   background: var(--bg-color);
-  z-index: 1000;
 }
 
 .site-logo {
