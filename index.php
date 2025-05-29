@@ -10,7 +10,7 @@
     const fileVer = Date.now();
     const head = document.getElementsByTagName("head")[0];
 
-    const cssList = ["style", "spinner"];
+    const cssList = ["style", "menu", "publikacje", "footer", "spinner", "o-nas"];
     cssList.forEach((file) => {
       let link = document.createElement("link");
       link.rel = "stylesheet";
@@ -32,9 +32,9 @@
 
 <?php
 include('html/spinner.html');
+include('html/menu.html');
 
 echo '<body id="body">';
-include('html/menu.html');
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 
 if (!$page) {
