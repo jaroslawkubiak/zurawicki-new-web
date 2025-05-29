@@ -2,6 +2,8 @@ const menuToggle = document.getElementById("menu-toggle");
 const openMenuBtn = document.getElementById("open-menu-btn");
 const closeMenuBtn = document.getElementById("close-menu-btn");
 const nav = document.getElementById("nav");
+const spinner = document.getElementById("spinner");
+const body = document.getElementById("body");
 
 menuToggle.addEventListener("click", () => {
   nav.classList.toggle("active");
@@ -25,7 +27,7 @@ closeMenuBtn.classList.remove("active");
 const sections = document.querySelectorAll(".section");
 
 function showSections() {
-  const triggerBottom = window.innerHeight * 0.25;
+  const triggerBottom = window.innerHeight;
 
   sections.forEach((section) => {
     const sectionTop = section.getBoundingClientRect().top;
@@ -39,7 +41,13 @@ function showSections() {
 window.addEventListener("scroll", showSections);
 
 // Na start
-showSections();
+window.addEventListener("load", () => {
+  showSections();
+  setTimeout(() => {
+    spinner.classList.add("hidden");
+    document.body.style.visibility = "visible";
+  }, 200);
+});
 
 document.querySelectorAll("nav ul li a").forEach((link) => {
   link.addEventListener("click", () => {
