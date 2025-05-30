@@ -23,7 +23,7 @@ footer {
   height: 20px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 820px) {
   footer {
     font-size: 16px;
   }

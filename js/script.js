@@ -66,7 +66,6 @@ window.addEventListener("scroll", function () {
 
   if (scrollY >= 500) {
     header.classList.add("sticky");
-    console.log(header.offsetHeight);
     placeholder.style.height = header.offsetHeight + "px";
   } else {
     header.classList.remove("sticky");

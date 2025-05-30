@@ -81,9 +81,9 @@ nav ul {
   margin-top: 40px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 820px) {
   .nav-menu {
-    padding: 20px 60px;
+    padding: 20px 40px;
   }
 
   .site-logo {
