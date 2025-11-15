@@ -30,15 +30,16 @@
   margin: 0 auto;
   justify-self: center;
   padding: 20px;
-  -webkit-box-shadow: 0px 0px 8px 0px rgba(149, 149, 149, 0.35);
-  -moz-box-shadow: 0px 0px 8px 0px rgba(149, 149, 149, 0.35);
-  box-shadow: 0px 0px 8px 0px rgba(149, 149, 149, 0.35);
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(46, 46, 46, 0.4);
+  -moz-box-shadow: 0px 0px 10px 1px rgba(46, 46, 46, 0.4);
+  box-shadow: 0px 0px 10px 1px rgba(46, 46, 46, 0.4);
 }
 
 .publikacja-img:hover {
-  -webkit-box-shadow: 0px 0px 13px 0px rgba(77, 77, 77, 0.46);
-  -moz-box-shadow: 0px 0px 13px 0px rgba(77, 77, 77, 0.46);
-  box-shadow: 0px 0px 13px 0px rgba(77, 77, 77, 0.46);
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(46, 46, 46, 0.7);
+  -moz-box-shadow: 0px 0px 10px 1px rgba(46, 46, 46, 0.7);
+  box-shadow: 0px 0px 10px 1px rgba(46, 46, 46, 0.7);
 }
 
 @media (min-width: 820px) {

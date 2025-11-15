@@ -40,12 +40,26 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 if (!$page) {
   include('html/home.html');
 } else {
-  include('html/' . $page . '.html');
+  $page = basename($page);
+
+  $html_file = 'html/' . $page . '.html';
+  $php_file = 'php/' . $page . '.php';
+
+  if (file_exists($html_file)) {
+    include($html_file);
+  } elseif (file_exists($php_file)) {
+    include($php_file);
+  } else {
+    include('html/home.html');
+  }
 }
+
+
 
 
 include('html/footer.html');
 ?>
 
 </body>
+
 </html>
