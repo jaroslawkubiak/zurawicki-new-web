@@ -8,6 +8,7 @@ header {
   border-bottom: 1px solid #070707;
   width: 100%;
   z-index: 1000;
+  background: var(--bg-color);
 }
 
 header.sticky {
