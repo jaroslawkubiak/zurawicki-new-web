@@ -54,9 +54,6 @@ if (!$page) {
   }
 }
 
-
-
-
 include('html/footer.html');
 ?>
 

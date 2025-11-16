@@ -4,9 +4,10 @@ if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1') {
     $mysql_server = "localhost";
     $mysql_admin = "root";
     $mysql_pass = "";
-    $mysql_db = "zurawicki_strona";
-} else //jezeli na serwerze
-{
+    $mysql_db = "zurawick_strona";
+}
+//jezeli na serwerze
+else {
     $mysql_server = "localhost";
     $mysql_pass = "bPKkr3Jqwy5bqR7843ut";
     $mysql_admin = "zurawick_strona";

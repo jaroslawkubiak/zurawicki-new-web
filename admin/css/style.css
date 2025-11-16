@@ -1,0 +1,180 @@
+:root {
+  --color-primary: rgb(0, 0, 0);
+  --color-secondary: rgb(255, 255, 255);
+  --bg-color: rgb(255, 255, 255);
+  --form-field-border: 1px solid rgb(0, 0, 0);
+  --checkbox-height: 30px;
+  --inputs-transitions: background-color 0.5s linear;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  color: var(--color-primary);
+  font-family: "Poppins", sans-serif;
+}
+a {
+  all: unset;
+}
+.svg {
+  cursor: pointer;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(227, 227, 227);
+  font-size: 2rem;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.zaloguj-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.zaloguj-wrapper h2 {
+  margin-bottom: 3rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.login-form label {
+  align-self: flex-start;
+  font-weight: 700;
+}
+
+input {
+  all: unset;
+  border: var(--form-field-border);
+  background-color: var(--bg-color);
+  color: var(--color-primary);
+  padding: 5px 10px;
+  transition: var(--inputs-transitions);
+}
+input:focus {
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+}
+
+input[type="submit"],
+input[type="button"] {
+  text-align: center;
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-primary);
+  cursor: pointer;
+  padding: 5px 0px;
+  width: 150px;
+  transition: var(--inputs-transitions);
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-secondary);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 50px rgb(243, 243, 243) inset !important;
+  border: 1px solid var(--color-primary);
+}
+.container {
+  /* background-color: crimson; */
+  /* border: 2px solid green; */
+  margin: 3rem 0;
+}
+
+.info-logout {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.info-logout a {
+  font-weight: 700;
+  cursor: pointer;
+}
+.info-login-error {
+  color: crimson;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.info-login-udany {
+  text-align: center;
+  color: rgb(59, 66, 63);
+  font-weight: 700;
+}
+
+nav {
+  display: flex;
+  gap: 3rem;
+  justify-content: flex-end;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: rgb(73, 73, 73);
+  fill: rgb(73, 73, 73);
+  font-weight: 700;
+  height: 4rem;
+  cursor: pointer;
+  position: relative;
+}
+
+nav a:hover {
+  color: rgb(0, 0, 0);
+  fill: rgb(0, 0, 0);
+}
+
+.error {
+  color: crimson;
+  text-align: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ankieta-tabela {
+  width: 100%;
+  background-color: var(--bg-color);
+  border-collapse: collapse;
+}
+
+.ankieta-naglowek {
+  font-weight: 700;
+  border: 1px solid black;
+}
+.ankieta-cell{
+  border: 1px solid black;
+ padding: 5px 5px 5px 10px;
+}
+
+.text-align-center {
+  text-align: center;
+}
+.text-align-left {
+  text-align: left;
+}

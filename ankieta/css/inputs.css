@@ -1,0 +1,146 @@
+.textarea {
+  border: var(--form-field-border);
+  background-color: var(--bg-color);
+  color: var(--color-primary);
+  font-size: 1.6rem;
+  font-family: 'Poppins', sans-serif;
+  padding: 5px 10px;
+  resize: none;
+  transition: var(--inputs-transitions);
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.textarea:focus {
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+  outline: none !important;
+}
+
+.height-sm {
+  height: 150px;
+}
+.height-md {
+  height: 200px;
+}
+.height-xl {
+  height: 300px;
+}
+.height-2xl {
+  height: 400px;
+}
+.width-xl {
+  width: 400px;
+}
+
+input {
+  all: unset;
+  border: var(--form-field-border);
+  background-color: var(--bg-color);
+  color: var(--color-primary);
+  padding: 5px 10px;
+  transition: var(--inputs-transitions);
+  -webkit-appearance: none;
+  font-size: 1.6rem;
+}
+
+input:focus {
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+}
+
+input[type='submit'],
+input[type='button'] {
+  text-align: center;
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-primary);
+  cursor: pointer;
+  padding: 5px 0px;
+  width: 150px;
+  transition: var(--inputs-transitions);
+}
+
+input[type='submit']:hover,
+input[type='button']:hover {
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-secondary);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 50px rgb(243, 243, 243) inset !important;
+  border: 1px solid var(--color-primary);
+}
+
+.form-list select {
+  margin-left: 20px;
+  height: var(--checkbox-height);
+  padding: 0 10px;
+  border: 1px solid var(--color-primary);
+  background-color: var(--bg-color);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  /* -webkit-appearance: none; */
+  border-radius: 0;
+}
+
+input[type='checkbox'] {
+  all: unset;
+  text-align: center;
+  color: var(--color-primary);
+  background-color: var(--bg-color);
+  border: 1px solid var(--color-primary);
+  cursor: pointer;
+  width: var(--checkbox-height);
+  height: var(--checkbox-height);
+  transition: var(--inputs-transitions);
+}
+input[type='checkbox']:checked {
+  background-color: var(--color-primary);
+}
+
+.btn-disabled {
+  display: none;
+}
+
+.start-email {
+  width: 90%;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+/*############################## Small devices (portrait tablets and large phones, 600px and up) ##############################*/
+@media only screen and (max-width: 600px) {
+  .form-list select {
+    margin-left: 0px;
+    padding: 0 5px 0 0;
+    height: 25px;
+  }
+
+  input[type='submit'],
+  input[type='button'] {
+    font-size: 2rem;
+  }
+  .height-sm {
+    height: 75px;
+  }
+  .height-md {
+    height: 100px;
+  }
+  .height-xl {
+    height: 200px;
+  }
+  .width-xl {
+    width: 150px;
+  }
+
+  .textarea {
+    padding: 3px;
+    font-size: 1.6rem;
+  }
+}
