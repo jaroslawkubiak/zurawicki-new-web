@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-require_once("_func.php");
-require_once("_variable.php");
-require_once("../ankieta/php/_conn.php");
+require_once("php/_func.php");
+require_once("php/_variable.php");
+require_once("../php/_conn.php");
 
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 $page = isset($_SESSION['page']) ? $_SESSION['page'] : '';
@@ -11,6 +11,7 @@ $page = isset($_SESSION['page']) ? $_SESSION['page'] : '';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="Author" content="Jarosław Kubiak" />
@@ -20,15 +21,31 @@ $page = isset($_SESSION['page']) ? $_SESSION['page'] : '';
   <title>Żurawicki Design - Admin</title>
   <!-- add css adn script file with version extension, to always load new files, preventing caching old files in browsers -->
   <script>
-    const fileVer = Date.now();
-    const head = document.getElementsByTagName("head")[0];
+    const fileVer = performance.now();
+    const head = document.head;
+    const cssFiles = [
+      "css/style.css",
+      "css/menu.css",
+      "css/ankieta.css"
+    ];
 
-    let csslink2 = document.createElement("link");
-    csslink2.rel = "stylesheet";
-    csslink2.type = "text/css";
-    csslink2.href = `css/style.css?v=${fileVer}`;
-    head.appendChild(csslink2);
+    cssFiles.forEach(file => {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = `${file}?v=${fileVer}`;
+      head.appendChild(link);
+    });
+
+    const scriptsList = ["copy-to-clipboard"];
+    scriptsList.forEach((file) => {
+      const link = document.createElement("script");
+      link.defer = true;
+      link.type = "module";
+      link.src = `js/${file}.js?v=${fileVer}`;
+      head.appendChild(link);
+    });
   </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -38,27 +55,38 @@ $page = isset($_SESSION['page']) ? $_SESSION['page'] : '';
 
 <body>
   <?php
-  if (isset($_GET['page'])) $page = $_GET['page'];
+  $page = $_GET['page'] ?? null;
 
-  if (auth_admin()) {
-    //jezeli admin się wylogował
-    if ($page == 'logout') logout();
-    else {
-      //wyświetlam zawartość stron
-      include("menu.php");
+  if (!auth_admin()) {
+    include "php/login.php";
+    exit;
+  }
 
-      echo '<div class="container">';
-      //po poprawnym zalogowaniu pokazujemy info powitalne
-      if (isset($_GET['login-success'])) {
-        echo '<div class="info-login-udany">Witaj ' . $_SESSION['user_name'] . '</div>';
-      }
+  // Admin jest zalogowany
+  if ($page === 'logout') {
+    logout();
+    exit;
+  }
 
-      if (isset($page)) if (file_exists($page . ".php")) {
-        include_once($page . ".php");
-      } elseif ($_GET['login-success'] != 1) include_once("null.php");
-      echo '</div>';
-    }
-  } else include("login.php");
+  include "php/menu.php";
+
+  echo '<div class="container">';
+
+  // Komunikat po poprawnym logowaniu
+  if (isset($_GET['login-success'])) {
+    echo '<div class="info-login-udany">Witaj ' . htmlspecialchars($_SESSION['user_name']) . '</div>';
+  }
+
+  // Ładowanie strony
+  $filepath = "php/" . $page . ".php";
+
+  if ($page && file_exists($filepath)) {
+    include_once $filepath;
+  } elseif (!isset($_GET['login-success'])) {
+    include_once "php/page-in-progress.php";
+  }
+
+  echo '</div>';
 
   ?>
 </body>

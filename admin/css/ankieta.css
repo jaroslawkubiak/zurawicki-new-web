@@ -1,0 +1,32 @@
+.ankieta-tabela {
+  width: 90%;
+  background-color: var(--background-color-primary);
+  border-collapse: collapse;
+}
+
+.ankieta-naglowek {
+  font-weight: 700;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 10px;
+  color: var(--secondary-color);
+  background-color: var(--background-color-secondary) !important;
+}
+
+.ankieta-cell {
+  border: var(--form-field-border);
+  padding: 10px;
+}
+
+.link {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}
+
+.link:hover {
+  color: var(--accent-color);
+}
+
+.row:hover {
+  background-color: var(--neutral-color);
+}

@@ -166,16 +166,6 @@ function generateHash($length = 20, $numbers = true, $lower_case = true, $upper_
 	}
 }
 
-function generujLinkAnkiety($conn, $ankietaID, $adres_ip)
-{
-	if ($adres_ip == '127.0.0.1') $linkSerwer = '';
-	else $linkSerwer = 'http://zurawickidesign.pl/ankieta/';
-	$sql = mysqli_fetch_assoc(mysqli_query($conn, "SELECT hash FROM a_naglowek WHERE id = " . $ankietaID . ";"));
-	$hash = $sql['hash'];
-	$link = '<p color="#000"><a href="' . $linkSerwer . 'index.php?page=ankieta&hash=' . $hash . '">Ankieta</a></p>';
-	return $link;
-}
-
 function registerEmails($conn, $email_details)
 {
 	$ankietaid = $email_details['ankietaID'];
@@ -186,4 +176,14 @@ function registerEmails($conn, $email_details)
 	$sql = "INSERT INTO email_sends (`ankietaID`, `email`, `status`, `data`, `time`) 
 	VALUES ($ankietaid, '$email', '$status', '$dzis', '$time');";
 	mysqli_query($conn, $sql);
+}
+
+function generujLinkAnkiety($conn, $ankietaID, $adres_ip)
+{
+	if ($adres_ip == '127.0.0.1') $linkSerwer = '';
+	else $linkSerwer = 'http://zurawickidesign.pl/ankieta/';
+	$sql = mysqli_fetch_assoc(mysqli_query($conn, "SELECT hash FROM a_naglowek WHERE id = " . $ankietaID . ";"));
+	$hash = $sql['hash'];
+	$link = '<p color="#000"><a href="' . $linkSerwer . 'index.php?page=ankieta&hash=' . $hash . '">Ankieta</a></p>';
+	return $link;
 }
