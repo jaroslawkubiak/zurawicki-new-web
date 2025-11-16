@@ -84,7 +84,6 @@ if ($_SERVER['REMOTE_ADDR'] != '127.0.0.1') {
   $mail->FromName = 'Żurawicki Design';
   $mail->From = $email_nadawcy;
   $mail->AddAddress($email_odbiorcy);
-  // $mail->AddAddress('jaroslawkubiak82@gmail.com');
   $mail->AddReplyTo($email_pracowni, "Żurawicki Design");
   $mail->Subject = $tytul_emaila;
   $mail->Body =  html_entity_decode($tresc_maila);

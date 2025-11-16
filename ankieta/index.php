@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("php/_var.php");
-include("php/_conn.php");
+include("../php/_conn.php");
 include("php/_func.php");
 
 $email = isset($_REQUEST['email']) ? $_REQUEST['email'] : '';
@@ -31,7 +31,7 @@ $wstecz = isset($_REQUEST['wstecz']) ? $_REQUEST['wstecz'] : '';
     let scriptLink = document.createElement("script");
     scriptLink.defer = true;
     scriptLink.type = "module";
-    scriptLink.src = `script.js?v=${fileVer}`;
+    scriptLink.src = `js/script.js?v=${fileVer}`;
     head.appendChild(scriptLink);
 
     let csslink2 = document.createElement("link");
@@ -112,11 +112,11 @@ $wstecz = isset($_REQUEST['wstecz']) ? $_REQUEST['wstecz'] : '';
           break;
         case '2':
           include('php/query/etap_2_dane_ogolne.php');
-          include('php/views/a_charakterystyka_mieszkancow.php');
+          include('php/views/charakterystyka_mieszkancow.php');
           break;
         case '3':
           include('php/query/etap_3_charakterystyka_mieszkancow.php');
-          include('php/views/a_charakterystyka_pomieszczenia.php');
+          include('php/views/charakterystyka_pomieszczenia.php');
           break;
         case '4':
           include('php/query/etap_4_charakterystyka_pomieszczenia.php');
