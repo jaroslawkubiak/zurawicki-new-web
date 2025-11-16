@@ -26,7 +26,7 @@ $page = isset($_SESSION['page']) ? $_SESSION['page'] : '';
     const cssFiles = [
       "css/style.css",
       "css/menu.css",
-      "css/ankieta.css"
+      "css/tabela.css"
     ];
 
     cssFiles.forEach(file => {
@@ -70,6 +70,7 @@ $page = isset($_SESSION['page']) ? $_SESSION['page'] : '';
 
   include "php/menu.php";
 
+  echo '<div class="body-container">';
   echo '<div class="container">';
 
   // Komunikat po poprawnym logowaniu
@@ -86,6 +87,7 @@ $page = isset($_SESSION['page']) ? $_SESSION['page'] : '';
     include_once "php/page-in-progress.php";
   }
 
+  echo '</div>';
   echo '</div>';
 
   ?>
