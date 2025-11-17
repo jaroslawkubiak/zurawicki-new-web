@@ -1,66 +1,29 @@
-<!-- <table class="ankieta-tabela">
-    <tr>
-        <th class="ankieta-naglowek">LP</th>
-        <th class="ankieta-naglowek">Wydawnictwo</th>
-        <th class="ankieta-naglowek">Data</th>
-        <th class="ankieta-naglowek">Link tekstowy</th>
-        <th class="ankieta-naglowek">Kopiuj</th>
-        <th class="ankieta-naglowek">Link</th>
-        <th class="ankieta-naglowek">Obraz</th>
-    </tr> -->
-<?php
-// $i = 0;
-// $sql = "SELECT * FROM publikacje ORDER BY id DESC;";
-// $result = mysqli_query($conn, $sql);
-// if (mysqli_num_rows($result) > 0)
-//     while ($wynik = mysqli_fetch_assoc($result)) {
-//         echo '<tr>';
-//         $i++;
-//         echo '<td class="ankieta-naglowek text-align-center">' . $i . '</td>';
-//         echo '<td class="ankieta-cell text-align-left">' . $wynik['title'] . '</td>';
-//         echo '<td class="ankieta-cell text-align-left">' . $wynik['date'] . '</td>';
-//         echo '<td class="ankieta-cell text-align-left">' . $wynik['link'] . '</td>';
-//         echo '<td class="ankieta-cell text-align-center svg copy" data-copy="' . $wynik['link'] . '">';
-//         include "svg/copy.html";
-//         echo '</td>';
-
-//         echo '<td class="link ankieta-cell text-align-left"><a href="' . $wynik['link'] . '" target="_blank">';
-//         include "svg/link.html";
-//         echo '</a></td>';
-
-//         echo '<td class="ankieta-cell text-align-center"><img src="../img/publikacje/' . $wynik['image'] . '" alt="Screen publikacji" class="img-publikacja"/></td>';
-//         echo '</tr>';
-//     }
-// 
-?>
-<!-- </table> -->
-
 <div class="tabela-wrapper">
+<div class="publikacje-wrapper">
     <?php
-    $i = 0;
     $sql = "SELECT * FROM publikacje ORDER BY id DESC;";
     $result = mysqli_query($conn, $sql);
+    $ilosc_wierszy = mysqli_num_rows($result);
     if (mysqli_num_rows($result) > 0)
         while ($wynik = mysqli_fetch_assoc($result)) {
             echo '<div class="publikacje-container">';
-            $i++;
-            echo '<div class="publikacje-lp">' . $i . '</div>';
-            echo '<div class="flex-center publikacje-title">' . $wynik['title'] . '</div>';
-            echo '<div class="flex-center publikacje-data">' . $wynik['date'] . '</div>';
-            echo '<div class="flex-center publikacje-link-tekst">' . $wynik['link'] . '</div>';
-            echo '<div class="publikacje-actions">';
-            echo '<div class="publikacje-copy-link link" data-copy="' . $wynik['link'] . '">';
-            include "svg/copy.html";
-            echo '</div>';
-            echo '<div class="publikacje-link link"><a href="' . $wynik['link'] . '" target="_blank">';
-            include "svg/link.html";
-            echo '</a></div>';
-            echo '</div>';
-
-            echo '<div class="publikacje-img"><img src="../img/publikacje/' . $wynik['image'] . '" alt="Screen publikacji" class="publikacje-img-size" /></div>';
+                echo '<div class="publikacje-lp flex-center">' . $ilosc_wierszy-- . '</div>';
+                echo '<div class="publikacje-img">';
+                    echo '<img src="../img/publikacje/' . $wynik['image'] . '" alt="Screen publikacji" class="publikacje-img-size" />';
+                echo '</div>';
+                echo '<div class="publikacje-title">' . $wynik['title'] . '</div>';
+                echo '<div class="publikacje-data">' . $wynik['date'] . '</div>';
+                echo '<div class="publikacje-actions">';
+                    echo '<div class="publikacje-link-tekst">' . $wynik['link'] . '</div>';
+                    echo '<div class="publikacje-link link" data-copy="' . $wynik['link'] . '">';
+                        include "svg/copy.html";
+                    echo '</div>';
+                    echo '<div class="publikacje-link link"><a href="' . $wynik['link'] . '" target="_blank">';
+                        include "svg/link.html";
+                    echo '</a></div>';
+                echo '</div>';
             echo '</div>';
         }
     ?>
 </div>
-
-<!--  -->
+</div>

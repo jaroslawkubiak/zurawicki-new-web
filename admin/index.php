@@ -26,7 +26,8 @@ $page = isset($_SESSION['page']) ? $_SESSION['page'] : '';
     const cssFiles = [
       "css/style.css",
       "css/menu.css",
-      "css/tabela.css"
+      "css/tabela.css",
+      "css/publikacje.css"
     ];
 
     cssFiles.forEach(file => {
