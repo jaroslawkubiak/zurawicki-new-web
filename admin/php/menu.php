@@ -17,7 +17,7 @@
 
         </nav>
 
-        <a href="index.php?page=logout" class="logout">
+        <a href="index.php?page=logout" class="logout" title="Wyloguj" alt="Wyloguj">
             <?php include "svg/logout.html"; ?>
         </a>
     </div>

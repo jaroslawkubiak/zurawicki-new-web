@@ -37,7 +37,7 @@ $page = isset($_SESSION['page']) ? $_SESSION['page'] : '';
       head.appendChild(link);
     });
 
-    const scriptsList = ["copy-to-clipboard"];
+    const scriptsList = ["copy-to-clipboard", "show-upload-form"];
     scriptsList.forEach((file) => {
       const link = document.createElement("script");
       link.defer = true;
@@ -54,7 +54,7 @@ $page = isset($_SESSION['page']) ? $_SESSION['page'] : '';
   <link rel="bookmark icon" href="../img/logo.png" />
 </head>
 
-<body>
+<body id="body">
   <?php
   $page = $_GET['page'] ?? null;
 
