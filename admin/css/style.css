@@ -111,3 +111,45 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+input {
+  all: unset;
+  border: var(--input-border-width) solid var(--accent-color-13);
+  background-color: var(--accent-color-lighter);
+  color: var(--accent-color-13);
+  padding: 8px 16px;
+  transition: var(--inputs-transitions);
+  margin-bottom: 24px;
+  font-size: 14px !important;
+}
+
+input:-webkit-autofill {
+  font-size: 14px !important;
+  -webkit-box-shadow: 0 0 0 50px var(--accent-color-lighter) inset !important;
+  -webkit-text-fill-color: var(--accent-color-13) !important;
+  border: var(--input-border-width) solid var(--accent-color-13) !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+input[type="submit"],
+input[type="button"],
+button {
+  text-align: center;
+  color: var(--accent-color-02);
+  fill: var(--accent-color-02);
+  background-color: var(--accent-color-13);
+  border: var(--input-border-width) solid var(--accent-color-13);
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: var(--inputs-transitions);
+  font-size: 1.6rem !important;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover {
+  color: var(--accent-color-13);
+  background-color: var(--accent-color-02);
+  border: var(--input-border-width) solid var(--accent-color-13);
+  fill: var(--accent-color-13);
+}

@@ -21,13 +21,13 @@ if(isset($_POST["submit"]))
         <div class="login-field">
             <label for="login">Login</label>
             <?php
-            echo '<input id="login" type="text" autocomplete="on" name="login" required tabindex="1"  value="'.$_POST['login'].'" />';
+            echo '<input id="login" type="text" class="login-input-field" autocomplete="on" name="login" required tabindex="1" value="'.$_POST['login'].'" />';
             ?>
         </div>
         <div class="login-field">
             <label for="password">Password</label>
             <?php
-            echo '<input type="password" id="haslo" autocomplete="on" name="haslo" required tabindex="2"  value="'.$_POST['haslo'].'">';
+            echo '<input type="password" id="haslo" class="login-input-field" autocomplete="on" name="haslo" required tabindex="2" value="'.$_POST['haslo'].'">';
             ?>
         </div>
 
