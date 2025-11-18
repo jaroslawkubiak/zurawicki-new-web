@@ -14,8 +14,8 @@ function logout()
 {
   session_unset();
   session_destroy();
-  include "php/login.php";
   echo '<p class="info-logout">Wylogowano poprawnie.</p>';
+  include "php/login.php";
 }
 
 //sprawdza czy admin jest zalogowany
@@ -76,13 +76,4 @@ function pusty_login_i_haslo($user_name, $user_password)
   else $result = false;
 
   return $result;
-}
-
-//pokazuje info o błędach przy rejestracji i logowaniu
-function pokaz_info($info, $blad)
-{
-  // $blad = tak, pokazuje na czerwono, nie - pokazuje zwykły podkreślony tekst, flush - duzy zwykły tekst
-  if ($blad == 'tak') echo '<div class="error_wrapper"><div class="error">' . $info . '</div></div>';
-  elseif ($blad == 'flush')  echo '<div class="error_wrapper"><div class="error_flush">' . $info . '</div></div>';
-  else echo '<div class="error_wrapper"><div class="error_brak">' . $info . '</div></div>';
 }

@@ -13,25 +13,39 @@ if(isset($_POST["submit"]))
     $_POST['login'] = '';
     $_POST['haslo'] = '';
 }
-
-echo '<section class="zaloguj-wrapper">';
-    echo '<h2>Zaloguj się</h2>';
-
-    if(isset($_GET["error"]))
-        {
-        if($_GET["error"] == 1) pokaz_info('Proszę wpisać dane.', 'tak');
-        if($_GET["error"] == 2) pokaz_info('Proszę spróbować ponownie.', 'tak');
-        if($_GET["error"] == 3) pokaz_info('<p class="info-login-error">Dane są niepoprawne!</p>', 'tak');
-        }
-
-    echo '<form action="index.php" method="post" class="login-form">';
-        echo '<label for="login">Login</label>';
-        echo '<input type="text" id="login" autocomplete="on" name="login" tabindex="1" required value="'.$_POST['login'].'">';
-
-        echo '<label for="haslo">Hasło</label>';
-        echo '<input type="password" id="haslo" autocomplete="on" name="haslo" tabindex="2" required value="'.$_POST['haslo'].'">';
-
-        echo '<input type="submit" value="Zaloguj" name="submit">';
-    echo '</form>';
-echo '</section>';
 ?>
+<div class="login-container">
+<form action="index.php" method="post">
+    <div class="login-wrapper">
+        <img src="../img/logo-black.png" alt="logo" />
+        <div class="login-field">
+            <label for="login">Login</label>
+            <?php
+            echo '<input id="login" type="text" autocomplete="on" name="login" required tabindex="1"  value="'.$_POST['login'].'" />';
+            ?>
+        </div>
+        <div class="login-field">
+            <label for="password">Password</label>
+            <?php
+            echo '<input type="password" id="haslo" autocomplete="on" name="haslo" required tabindex="2"  value="'.$_POST['haslo'].'">';
+            ?>
+        </div>
+
+        <p class="login-error-wrapper">
+            <?php
+            if(isset($_GET["error"])) {
+                if($_GET["error"] == 1) echo 'Proszę wpisać dane.';
+                if($_GET["error"] == 2) echo 'Proszę spróbować ponownie.';
+                if($_GET["error"] == 3) echo 'Dane są niepoprawne!';
+            }
+            ?>
+        </p>
+        <button class="login-submit-wrapper" type="submit" name="submit">Login
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256">
+            <path d="M141.66,133.66l-40,40a8,8,0,0,1-11.32-11.32L116.69,136H24a8,8,0,0,1,0-16h92.69L90.34,93.66a8,8,0,0,1,11.32-11.32l40,40A8,8,0,0,1,141.66,133.66ZM200,32H136a8,8,0,0,0,0,16h56V208H136a8,8,0,0,0,0,16h64a8,8,0,0,0,8-8V40A8,8,0,0,0,200,32Z">
+                </path>
+            </svg>
+        </button>
+    </div>
+</form>
+</div>

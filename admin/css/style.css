@@ -76,71 +76,6 @@ body {
   margin: 0 auto;
 }
 
-.zaloguj-wrapper {
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.zaloguj-wrapper h2 {
-  margin-bottom: 3rem;
-}
-
-.login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
-.login-form label {
-  align-self: flex-start;
-  font-weight: 700;
-}
-
-input {
-  all: unset;
-  border: var(--form-field-border);
-  background-color: var(--background-color-primary);
-  color: var(--primary-color);
-  padding: 5px 10px;
-  transition: var(--inputs-transitions);
-}
-
-input:focus {
-  color: var(--secondary-color);
-  background-color: var(--primary-color);
-}
-
-input[type="submit"],
-input[type="button"] {
-  text-align: center;
-  color: var(--primary-color);
-  background-color: var(--secondary-color);
-  border: 1px solid var(--primary-color);
-  cursor: pointer;
-  padding: 5px 0px;
-  width: 150px;
-  transition: var(--inputs-transitions);
-}
-
-input[type="submit"]:hover,
-input[type="button"]:hover {
-  color: var(--secondary-color);
-  background-color: var(--primary-color);
-  border: 1px solid var(--secondary-color);
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 50px rgb(243, 243, 243) inset !important;
-  border: 1px solid var(--primary-color);
-}
-
 .body-container {
   margin: 3rem 0;
   display: flex;
@@ -159,23 +94,16 @@ input:-webkit-autofill:active {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.info-login-error {
-  color: var(--error-color);
-  font-weight: 700;
-  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  color: var(--accent-color-13);
+  font-weight: 600;
 }
 
 .info-login-udany {
   text-align: center;
-  color: var(--primary-color);
   font-weight: 700;
-}
-
-.error {
-  color: var(--error-color);
-  text-align: center;
+  font-size: 3rem;
+  color: var(--accent-color-12);
 }
 
 .flex-center {

@@ -1,0 +1,106 @@
+* {
+  --input-border-width: 1px;
+  --inputs-transitions: background-color 0.5s linear;
+}
+
+.login-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+  padding: 2rem;
+  margin-top: 5rem;
+  width: 500px;
+  justify-self: center;
+  position: relative;
+  font-size: 14px !important;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.login-field label {
+  margin: 1.2rem 0;
+  font-weight: 700;
+  color: var(--accent-color-13);
+}
+
+.login-error-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--error-color);
+  font-size: 1.6rem;
+  height: 30px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.login-submit-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  background-color: var(--accent-color-13);
+}
+
+input {
+  all: unset;
+  width: 200px;
+  border: var(--input-border-width) solid var(--accent-color-13);
+  background-color: var(--accent-color-lighter);
+  color: var(--accent-color-13);
+  padding: 8px 16px;
+  transition: var(--inputs-transitions);
+  margin-bottom: 24px;
+  font-size: 14px !important;
+}
+
+input:-webkit-autofill {
+  font-size: 14px !important;
+  -webkit-box-shadow: 0 0 0 50px var(--accent-color-lighter) inset !important;
+  -webkit-text-fill-color: var(--accent-color-13) !important;
+  border: var(--input-border-width) solid var(--accent-color-13) !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+input[type="submit"],
+input[type="button"],
+button {
+  text-align: center;
+  color: var(--accent-color-02);
+  fill: var(--accent-color-02);
+  background-color: var(--accent-color-13);
+  border: var(--input-border-width) solid var(--accent-color-13);
+  cursor: pointer;
+  padding: 8px 16px;
+  width: 232px;
+  transition: var(--inputs-transitions);
+  font-size: 1.6rem !important;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover {
+  color: var(--accent-color-13);
+  background-color: var(--accent-color-02);
+  border: var(--input-border-width) solid var(--accent-color-13);
+  fill: var(--accent-color-13);
+}
