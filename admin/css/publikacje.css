@@ -129,9 +129,12 @@
 .publikacje-img-size {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top;
+  object-fit: contain;
   border-radius: 8px;
+}
+
+.publikacje-image-title {
+  font-weight: 700;
 }
 
 .publikacje-title {
@@ -257,4 +260,53 @@
 .publikacje-button.disabled {
   opacity: 0.4;
   pointer-events: none;
+}
+
+.delete-btn {
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: var(--accent-color-03);
+  fill: var(--error-color);
+}
+
+.delete-btn:hover {
+  background-color: var(--error-color);
+  fill: var(--accent-color-03);
+}
+
+.publikacje-usun-btn {
+  background-color: var(--accent-color-20) !important;
+  border: 1px solid var(--accent-color-15) !important;
+  color: var(--accent-color-01) !important;
+}
+
+.publikacje-mark-for-delete {
+  background-color: var(--error-color-lighter) !important;
+  color: var(--neutral-color-dark) !important;
+  border: none;
+}
+
+.publikacje-mark-btn-for-delete {
+  background-color: var(--error-color-lighter) !important;
+}
+
+.publikacje-mark-for-disabled {
+  cursor: default;
+}
+
+.publikacje-mark-img-for-disabled {
+  filter: grayscale(100%);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.hide-response {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
 }

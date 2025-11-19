@@ -8,7 +8,9 @@
   --neutral-color-darker: #c9cfcd;
   --neutral-color-dark: #919191;
 
+  --error-color-lighter: #ffabab;
   --error-color: #e91e63;
+  --error-color-darker: #a70808;
 
   --white-color: #fff;
   --black-color: #000;

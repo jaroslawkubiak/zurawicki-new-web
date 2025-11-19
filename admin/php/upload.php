@@ -6,11 +6,38 @@ $date = $_POST['date'] ?? '';
 $link = $_POST['link'] ?? '';
 $uploadDir = '../img/publikacje/';
 
-if (!empty($_POST['edit_id'])) {
-    $id = $_POST['edit_id'];
+if (!empty($_POST['delete_id'])) {
+    $delete_id = $_POST['delete_id'];
+
+    $getImage = mysqli_query($conn, "SELECT image FROM publikacje WHERE id = $delete_id");
+    $imageToDelete = $uploadDir . mysqli_fetch_assoc($getImage)['image'];
+
+    if (file_exists($imageToDelete)) {
+        if (unlink($imageToDelete)) {
+            $sql = "DELETE FROM publikacje WHERE id=$delete_id LIMIT 1";
+            
+            if (mysqli_query($conn, $sql)) {
+                if (mysqli_affected_rows($conn) > 0) {
+                    header("Location: index.php?page=publikacje&success=Publikacja+została+usunięta");
+                    exit;
+                } else {
+                    header("Location: index.php?page=publikacje&error=Nie+udało+się+publikacji");
+                    exit;
+                }
+            }
+        } else {
+            header("Location: index.php?page=publikacje&error=Nie+udało+się+usunąć+pliku+oraz+publikacji");
+            exit;            
+        }
+    } else {
+        header("Location: index.php?page=publikacje&error=Plik+publikacji+nie+istnieje");
+        exit; 
+    }
+} else if (!empty($_POST['edit_id'])) {
+    $edit_id = $_POST['edit_id'];
 
     // pobierz aktualną nazwę obrazu
-    $getImage = mysqli_query($conn, "SELECT image FROM publikacje WHERE id = $id");
+    $getImage = mysqli_query($conn, "SELECT image FROM publikacje WHERE id = $edit_id");
     $currentImage = mysqli_fetch_assoc($getImage)['image'];
 
     // sprawdź czy użytkownik wybrał nowe zdjęcie
@@ -35,14 +62,13 @@ if (!empty($_POST['edit_id'])) {
     }
 
     // zapisz zmiany
-    $sql = "UPDATE publikacje SET title='$title', date='$date', link='$link', image='$nowa_nazwa' WHERE id=$id";
+    $sql = "UPDATE publikacje SET title='$title', date='$date', link='$link', image='$nowa_nazwa' WHERE id=$edit_id";
     mysqli_query($conn, $sql);
 
     header("Location: index.php?page=publikacje&success=Publikacja+została+zaktualizowana");
     exit;        
 } else {
     if (isset($_FILES['image']) && $_FILES['image']['error'] === 0 && $title && $date && $link) {
-        $uploadDir = '../img/publikacje/';
         $filename = basename($_FILES['image']['name']);
         $nowa_nazwa = generateFilename($title, $date);
 

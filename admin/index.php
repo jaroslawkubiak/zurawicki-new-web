@@ -37,15 +37,6 @@ $page = isset($_SESSION['page']) ? $_SESSION['page'] : '';
       link.href = `${file}?v=${fileVer}`;
       head.appendChild(link);
     });
-
-    const scriptsList = ["copy-to-clipboard", "publications"];
-    scriptsList.forEach((file) => {
-      const link = document.createElement("script");
-      link.defer = true;
-      link.type = "module";
-      link.src = `js/${file}.js?v=${fileVer}`;
-      head.appendChild(link);
-    });
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">

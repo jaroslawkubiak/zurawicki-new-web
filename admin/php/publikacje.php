@@ -1,3 +1,13 @@
+  <script>
+    const scriptsList = ["copy-to-clipboard", "publications"];
+    scriptsList.forEach((file) => {
+      const link = document.createElement("script");
+      link.defer = true;
+      link.type = "module";
+      link.src = `js/${file}.js?v=${fileVer}`;
+      head.appendChild(link);
+    });
+  </script>
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -10,9 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="publikacje-dodaj-wrapper">
         <form action="index.php?page=publikacje" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="edit_id" id="edit_id">
-            <div class="publikacje-container">
+            <input type="hidden" name="delete_id" id="delete_id">
+            <div class="publikacje-container" id="modal-window">
                 <div class="publikacje-dodaj-img-wrapper">
-                <p>Dodaj zdjęcie</p>
+                <p class="publikacje-image-title">Dodaj zdjęcie</p>
                 <div class="img-preview" >
                     <img id="preview" src="" alt="Image">
                     <span id="file-info" class="file-info" style="display:none;"></span>  
@@ -39,10 +50,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label for="link">Link do artykułu</label>
                     <input type="text" name="link" class="publikacje-input-field" autocomplete="off" id="link" placeholder="https://www.vogue.pl/a/nowy-apartament-aura-w-sercu-bydgoszczy"/>
                 </div>
-                <input type="submit" name="submit" value="Dodaj" class="publikacje-button disabled">
+                <input type="submit" name="submit" value="Dodaj" id="submit" class="publikacje-button disabled">
                 <div class="close-btn flex-center" id="close-btn">
                     <?php
                     include "svg/close.html"; 
+                    ?>
+                </div>
+                <div class="delete-btn flex-center" id="delete-btn">
+                    <?php
+                    include "svg/delete.html"; 
                     ?>
                 </div>
             </div>
@@ -59,13 +75,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <span>Dodaj publikację</span>
         </div>            
         <div class="publikacje-dodaj-item flex-center">
-            <?php if (!empty($_GET['success'])): ?>
-                <div class="publikacja-dodana-ok"><?= htmlspecialchars($_GET['success']); ?></div>
-            <?php endif; ?>
+            <div id="response-wrapper">
+                <?php if (!empty($_GET['success'])): ?>
+                    <div class="publikacja-dodana-ok"><?= htmlspecialchars($_GET['success']); ?></div>
+                <?php endif; ?>
 
-            <?php if (!empty($_GET['error'])): ?>
-                <div class="publikacja-dodana-error"><?= htmlspecialchars($_GET['error']); ?></div>
-            <?php endif; ?>
+                <?php if (!empty($_GET['error'])): ?>
+                    <div class="publikacja-dodana-error"><?= htmlspecialchars($_GET['error']); ?></div>
+                <?php endif; ?>
+            </div>
         </div>
         <div class="publikacje-dodaj-item flex-center"></div>
     </div>
