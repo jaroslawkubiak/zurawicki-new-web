@@ -17,7 +17,7 @@ if(isset($_POST["submit"]))
 <div class="login-container">
 <form action="index.php" method="post">
     <div class="login-wrapper">
-        <img src="../img/logo-black.png" alt="logo" />
+        <img src="../img/logo-black.png" alt="logo" class="login-img"/>
         <div class="login-field">
             <label for="login">Login</label>
             <?php

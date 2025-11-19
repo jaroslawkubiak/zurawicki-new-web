@@ -2,12 +2,14 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include("upload.php");
+    exit;
 }
 ?>
 
-<div class="publikacje-dodaj-blur flex-center hidden" id="nowa-publikacja">
+<div class="publikacje-dodaj-blur hidden" id="nowa-publikacja">
     <div class="publikacje-dodaj-wrapper">
         <form action="index.php?page=publikacje" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="edit_id" id="edit_id">
             <div class="publikacje-container">
                 <div class="publikacje-dodaj-img-wrapper">
                 <p>Dodaj zdjęcie</p>
@@ -15,28 +17,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <img id="preview" src="" alt="Image">
                     <span id="file-info" class="file-info" style="display:none;"></span>  
                 </div>
-
+                
                 <label for="image" class="choose-image" id="image-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 256 256" for="image">
-                    <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V158.75l-26.07-26.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L40,149.37V56ZM40,172l52-52,80,80H40Zm176,28H194.63l-36-36,20-20L216,181.38V200ZM144,100a12,12,0,1,1,12,12A12,12,0,0,1,144,100Z"
-                    ></path>
+                        <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V158.75l-26.07-26.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L40,149.37V56ZM40,172l52-52,80,80H40Zm176,28H194.63l-36-36,20-20L216,181.38V200ZM144,100a12,12,0,1,1,12,12A12,12,0,0,1,144,100Z"
+                        ></path>
                     </svg>
                 </label>    
+                <span id="image-error" class="publikacja-img-error-msg"></span>
                     <input type="file" name="image" id="image" accept="image/*" style="display:none">
                 </div>
                 <div class="publikacje-dodaj-input-wrapper">
                     <label for="title">Nazwa wydawnictwa</label>
-                    <input type="text" name="title" autocomplete="off" id="title" placeholder="Vogue Polska"/>
+                    <input type="text" name="title" class="publikacje-input-field" autocomplete="off" id="title" placeholder="Vogue Polska"/>
                 </div>
                 <div class="publikacje-dodaj-input-wrapper">
                     <label for="date">Data</label>
-                    <input type="text" name="date" placeholder="Listopad 2025" autocomplete="off" id="date" />
+                    <input type="text" name="date" class="publikacje-input-field" autocomplete="off" id="date" placeholder="Listopad 2025" />
                 </div>
                 <div class="publikacje-dodaj-input-wrapper">
                     <label for="link">Link do artykułu</label>
-                    <input type="text" name="link"  autocomplete="off" id="link" placeholder="https://www.vogue.pl/a/nowy-apartament-aura-w-sercu-bydgoszczy"/>
+                    <input type="text" name="link" class="publikacje-input-field" autocomplete="off" id="link" placeholder="https://www.vogue.pl/a/nowy-apartament-aura-w-sercu-bydgoszczy"/>
                 </div>
-                <input type="submit" name="submit" value="Dodaj">
+                <input type="submit" name="submit" value="Dodaj" class="publikacje-button disabled">
                 <div class="close-btn flex-center" id="close-btn">
                     <?php
                     include "svg/close.html"; 
@@ -49,21 +52,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="publikacje-page-wrapper">
     <div class="publikacje-dodaj-container">
-        <div class="jkb1">
-            <div class="publikacje-dodaj-btn link" id="dodaj-btn">
-                <?php 
-                include "svg/plus.html"; 
-                ?>
-                <span>Dodaj publikację</span>
-            </div>            
-        </div>
+        <div class="publikacje-dodaj-btn link" id="dodaj-btn">
+            <?php 
+            include "svg/plus.html"; 
+            ?>
+            <span>Dodaj publikację</span>
+        </div>            
         <div class="publikacje-dodaj-item flex-center">
-        <?php 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            echo '<span class="publikacja-dodana-ok">'.$result_ok.'</span>'; 
-            echo '<span class="publikacja-dodana-error">'.$result_error.'</span>'; 
-        }
-        ?>    
+            <?php if (!empty($_GET['success'])): ?>
+                <div class="publikacja-dodana-ok"><?= htmlspecialchars($_GET['success']); ?></div>
+            <?php endif; ?>
+
+            <?php if (!empty($_GET['error'])): ?>
+                <div class="publikacja-dodana-error"><?= htmlspecialchars($_GET['error']); ?></div>
+            <?php endif; ?>
         </div>
         <div class="publikacje-dodaj-item flex-center"></div>
     </div>
@@ -77,6 +79,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             while ($wynik = mysqli_fetch_assoc($result)) {
                 echo '<div class="publikacje-container">';
                     echo '<div class="publikacje-lp flex-center">' . $ilosc_wierszy-- . '</div>';
+                    echo '<div class="publikacje-edit flex-center edit-btn"
+                            data-id="'.$wynik['id'].'"
+                            data-title="'.htmlspecialchars($wynik['title']).'"
+                            data-date="'.$wynik['date'].'"
+                            data-link="'.$wynik['link'].'"
+                            data-image="'.$wynik['image'].'"
+                            >';
+                        include "svg/edit.html";
+                    echo '</div>';
                     echo '<div class="publikacje-img">';
                         echo '<img src="../img/publikacje/' . $wynik['image'] . '" alt="Screen publikacji" class="publikacje-img-size" />';
                     echo '</div>';

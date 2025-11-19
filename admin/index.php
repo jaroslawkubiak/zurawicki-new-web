@@ -38,7 +38,7 @@ $page = isset($_SESSION['page']) ? $_SESSION['page'] : '';
       head.appendChild(link);
     });
 
-    const scriptsList = ["copy-to-clipboard", "show-upload-form"];
+    const scriptsList = ["copy-to-clipboard", "publications"];
     scriptsList.forEach((file) => {
       const link = document.createElement("script");
       link.defer = true;

@@ -115,7 +115,7 @@ body {
 input {
   all: unset;
   border: var(--input-border-width) solid var(--accent-color-13);
-  background-color: var(--accent-color-lighter);
+  background-color: var(--accent-color-02);
   color: var(--accent-color-13);
   padding: 8px 16px;
   transition: var(--inputs-transitions);
@@ -125,7 +125,7 @@ input {
 
 input:-webkit-autofill {
   font-size: 14px !important;
-  -webkit-box-shadow: 0 0 0 50px var(--accent-color-lighter) inset !important;
+  -webkit-box-shadow: 0 0 0 50px var(--accent-color-02) inset !important;
   -webkit-text-fill-color: var(--accent-color-13) !important;
   border: var(--input-border-width) solid var(--accent-color-13) !important;
   transition: background-color 5000s ease-in-out 0s !important;
